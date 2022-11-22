@@ -1,1 +1,6 @@
-
+{
+  "data_path": "data/raw/",
+  "vcf_name": "ALL.chr22.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz",
+  "expressions_name": "GD462.GeneQuantRPKM.50FN.samplename.resk10.txt",
+  "populations_name": "ALL_1000G_phase1integrated_v3.sample"
+}
