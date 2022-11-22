@@ -70,7 +70,7 @@ def compute_n_pairs(expressions_ch, data_path, vcf_out_prefix, expressions_name,
         
     return total_count
 
-def compute_eqtls(data_path, vcf_out_prefix, expressions_name, populations_name, chromosome, target_populations, cis_thresh, **kwargs):
+def compute_eqtls(data_path, vcf_out_prefix, expressions_name, populations_name, chromosome, target_populations, cis_thresh, outfile, **kwargs):
 
     cd = os.getcwd()
     expressions = pd.read_csv(cd + '/' + data_path + '/raw/' + expressions_name, sep='\t')
@@ -113,7 +113,7 @@ def compute_eqtls(data_path, vcf_out_prefix, expressions_name, populations_name,
 
                 significants = pd.concat([significants, record], ignore_index=True)
                 
-    significants.to_csv(cd + '/' + data_path + '/out/' + 'chr22_all_test.csv', index=False)
+    significants.to_csv(cd + '/' + data_path + '/out/' + outfile, index=False)
     
     
     

@@ -5,6 +5,7 @@
   "populations_name": "ALL_1000G_phase1integrated_v3.sample",
   "vcf_out_prefix": "chr22",
   "chromosome": "22",
-  "target_populations": ["CEU"],
-  "cis_thresh": 500000
+  "target_populations": ["CEU", "FIN", "GBR", "TSI", "YRI"],
+  "cis_thresh": 500000,
+  "outfile": "ch22_all.csv"
 }
