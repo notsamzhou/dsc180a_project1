@@ -1,6 +1,10 @@
 {
-  "data_path": "data/raw/",
+  "data_path": "data",
   "vcf_name": "ALL.chr22.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz",
-  "expressions_name": "GD462.GeneQuantRPKM.50FN.samplename.resk10.txt",
-  "populations_name": "ALL_1000G_phase1integrated_v3.sample"
+  "expressions_name": "GD462.GeneQuantRPKM.50FN.samplename.resk10.txt.gz",
+  "populations_name": "ALL_1000G_phase1integrated_v3.sample",
+  "vcf_out_prefix": "chr22",
+  "chromosome": "22",
+  "target_populations": ["CEU"],
+  "cis_thresh": 500000
 }
