@@ -1,10 +1,10 @@
 
 import os
 
-def clean_vcf(data_path, vcf_name, vcf_out_prefix, **kwargs):
+def clean_vcf(vcf_path, vcf_out_prefix, vcf_out_path, **kwargs):
     
-    vcf_path = os.getcwd() + '/' + data_path + '/raw/vcf/' + vcf_name
+    abs_vcf_path = os.getcwd() + '/' + vcf_path
     
-    os.system(f"plink --vcf {vcf_path} --maf 0.05 --biallelic-only --recode vcf --out {vcf_out_prefix}")
+    os.system(f"plink --vcf {abs_vcf_path} --maf 0.05 --biallelic-only --recode vcf --out {vcf_out_prefix}")
     
-    os.system(f"mv {vcf_name + '.vcf'} {os.getcwd() + '/' + data_path + '/temp/'}")
+    os.system(f"mv {vcf_out_prefix + '.vcf'} {os.getcwd() + '/' + vcf_out_path}")

@@ -49,11 +49,11 @@ def regress(x, snps, total_count, samples):
     return sig_alleles
     
     
-def compute_n_pairs(expressions_ch, data_path, vcf_out_prefix, expressions_name, populations_name, chromosome, cis_thresh):
+def compute_n_pairs(expressions_ch, vcf_out_path, vcf_out_prefix, expressions_name, populations_name, chromosome, cis_thresh):
     cd = os.getcwd()
     
-    names = get_vcf_names(cd + '/' + data_path + '/temp/' + vcf_out_prefix + '.vcf')
-    vcf = pd.read_csv(cd + '/' + data_path + '/temp/' + vcf_out_prefix + '.vcf', chunksize=50_000, comment='#',low_memory=False, delim_whitespace=True, header=None, names=names)
+    names = get_vcf_names(cd + '/' + vcf_out_path + vcf_out_prefix + '.vcf')
+    vcf = pd.read_csv(cd + '/' + vcf_out_path + vcf_out_prefix + '.vcf', chunksize=50_000, comment='#',low_memory=False, delim_whitespace=True, header=None, names=names)
 
     significants = 0
     p_values = []
@@ -70,24 +70,23 @@ def compute_n_pairs(expressions_ch, data_path, vcf_out_prefix, expressions_name,
         
     return total_count
 
-def compute_eqtls(data_path, vcf_out_prefix, expressions_name, populations_name, chromosome, target_populations, cis_thresh, outfile, **kwargs):
+def compute_eqtls(vcf_out_path, vcf_out_prefix, expressions_path, populations_path, chromosome, target_populations, cis_thresh, outfile, **kwargs):
 
-    cd = os.getcwd()
-    expressions = pd.read_csv(cd + '/' + data_path + '/raw/' + expressions_name, sep='\t')
+    cwd = os.getcwd()
+    expressions = pd.read_csv(cwd + '/' + expressions_path, sep='\t')
     
-    expressions_ch = expressions[expressions['Chr'] == chromosome]
+    expressions_ch = expressions[expressions['Chr'].astype(str) == chromosome]
     
-    pops = pd.read_csv(cd + '/' + data_path + '/raw/' + populations_name, sep=' ')
+    pops = pd.read_csv(cwd + '/' + populations_path, sep=' ')
     
-    n_pairs = compute_n_pairs(expressions_ch, data_path, vcf_out_prefix, expressions_name, populations_name, chromosome, cis_thresh)
+    n_pairs = compute_n_pairs(expressions_ch, vcf_out_path, vcf_out_prefix, expressions_path, populations_path, chromosome, cis_thresh)
     
-    print(n_pairs)
     target_pops = target_populations
     
     samples = pops['sample'][pops['population'].isin(target_pops)]
 
-    names = get_vcf_names(cd + '/' + data_path + '/temp/' + vcf_out_prefix + '.vcf')
-    vcf = pd.read_csv(cd + '/' + data_path + '/temp/' + vcf_out_prefix + '.vcf', chunksize=50_000, comment='#',low_memory=False, delim_whitespace=True, header=None, names=names)
+    names = get_vcf_names(cwd + '/' + vcf_out_path + vcf_out_prefix + '.vcf')
+    vcf = pd.read_csv(cwd + '/' + vcf_out_path + vcf_out_prefix + '.vcf', chunksize=50_000, comment='#',low_memory=False, delim_whitespace=True, header=None, names=names)
 
     significants = pd.DataFrame(columns=['gene', 'snp', 'pos', 'slope', 'SE', 'pvalue'])
 
@@ -113,7 +112,7 @@ def compute_eqtls(data_path, vcf_out_prefix, expressions_name, populations_name,
 
                 significants = pd.concat([significants, record], ignore_index=True)
                 
-    significants.to_csv(cd + '/' + data_path + '/out/' + outfile, index=False)
+    significants.to_csv(cwd + '/' + outfile, index=False)
     
     
     

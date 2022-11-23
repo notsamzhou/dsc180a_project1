@@ -20,17 +20,26 @@ def main(targets):
 
     data_config = json.load(open('config/data-params.json'))
     
-    if 'data' in targets:
-
+    if targets[0] == 'all':
         clean_data.clean_vcf(**data_config)
-        
-    if 'analysis' in targets:
-        
         analysis.compute_eqtls(**data_config)
         
-        
-    if 'test' in targets:
-        pass
+    else:
+    
+        if 'data' in targets:
+
+            clean_data.clean_vcf(**data_config)
+
+        if 'analysis' in targets:
+
+            analysis.compute_eqtls(**data_config)
+
+
+        if 'test' in targets:
+
+            clean_data.clean_vcf(**{**data_config, 'vcf_path':'test/testdata/test_genotypes.vcf', 'vcf_out_prefix':'test'})
+
+            analysis.compute_eqtls(**{**data_config, 'vcf_path':'test/testdata/test_genotypes.vcf', 'expressions_path':'test/testdata/test_expressions.txt', 'vcf_out_prefix':'test', 'outfile': 'test/out/test.csv'})
 
 if __name__ == '__main__':
     

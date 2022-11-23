@@ -1,11 +1,11 @@
 {
-  "data_path": "data",
-  "vcf_name": "ALL.chr22.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz",
-  "expressions_name": "GD462.GeneQuantRPKM.50FN.samplename.resk10.txt.gz",
-  "populations_name": "ALL_1000G_phase1integrated_v3.sample",
+  "vcf_path": "data/raw/vcfs/ALL.chr22.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz",
+  "expressions_path": "data/raw/GD462.GeneQuantRPKM.50FN.samplename.resk10.txt.gz",
+  "populations_path": "data/raw/ALL_1000G_phase1integrated_v3.sample",
+  "vcf_out_path": "data/temp/",
   "vcf_out_prefix": "chr22",
   "chromosome": "22",
   "target_populations": ["CEU", "FIN", "GBR", "TSI", "YRI"],
   "cis_thresh": 500000,
-  "outfile": "ch22_all.csv"
+  "outfile": "data/out/ch22_all.csv"
 }
