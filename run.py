@@ -1,3 +1,5 @@
+import warnings
+warnings.filterwarnings('ignore')
 import pandas as pd
 import io
 import os
@@ -8,8 +10,7 @@ import json
 from sklearn.linear_model import LinearRegression
 from scipy.stats import linregress
 import swifter
-import warnings
-warnings.filterwarnings('ignore')
+
 
 import src.clean_data as clean_data
 import src.analysis as analysis

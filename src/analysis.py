@@ -1,3 +1,7 @@
+import warnings
+
+warnings.filterwarnings('ignore')
+
 import pandas as pd
 import io
 import os
@@ -6,9 +10,6 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 from scipy.stats import linregress
 import swifter
-import warnings
-
-warnings.filterwarnings('ignore')
 
 def get_vcf_names(vcf_path):
     with open(vcf_path, "rt") as ifile:
