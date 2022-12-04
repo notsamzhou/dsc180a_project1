@@ -1,3 +1,6 @@
 data/
+test/out/
+notebooks/plots/
+notebooks/locuszoom/
 __pycache__
 .ipynb_checkpoints
