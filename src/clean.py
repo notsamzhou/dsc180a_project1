@@ -1,8 +1,10 @@
 import os
 
 def clean():
-
-    os.system("rm .png")
+    
+    if os.path.exists(os.getcwd() + '.png'
+        os.system("rm .png")
+                      
     if os.path.exists(os.getcwd() + '/data/out'):
         os.system("rm /data/out/*")
         
