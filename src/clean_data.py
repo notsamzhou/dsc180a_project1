@@ -5,7 +5,7 @@ def clean_vcf(vcf_path, vcf_out_prefix, vcf_out_path, **kwargs):
     
     abs_vcf_path = os.getcwd() + '/' + vcf_path
     
-    if not os.path.exists(os.getcwd() + '/data/temp')                
+    if not os.path.exists(os.getcwd() + '/data/temp'):                
         os.system("mkdir data/temp")
     
     
