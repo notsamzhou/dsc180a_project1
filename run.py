@@ -21,6 +21,9 @@ def main(targets):
 
     data_config = json.load(open('config/data-params.json'))
     
+    if not os.path.exists(os.getcwd() + '/data'):                
+        os.system("mkdir data")
+    
     if not os.path.exists(os.getcwd() + '/data/out'):                
         os.system("mkdir data/out")
     
