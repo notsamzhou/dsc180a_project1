@@ -16,3 +16,5 @@ def clean():
     if os.path.exists(os.getcwd() + '/test/out'):
         if os.listdir(os.getcwd() + '/test/out'):
             os.system("rm test/out/*")
+
+            

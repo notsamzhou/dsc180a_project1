@@ -11,11 +11,9 @@ from sklearn.linear_model import LinearRegression
 from scipy.stats import linregress
 import swifter
 
-
 import src.clean_data as clean_data
 import src.analysis as analysis
 import src.clean as clean
-
 
 
 def main(targets):
