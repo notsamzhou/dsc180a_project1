@@ -21,8 +21,10 @@ def main(targets):
 
     data_config = json.load(open('config/data-params.json'))
     
-    if targets[0] == 'all':
+    if not os.path.exists(os.getcwd() + '/data/out')                
         os.system("mkdir data/out")
+    
+    if targets[0] == 'all':
         clean_data.clean_vcf(**data_config)
         analysis.compute_eqtls(**data_config)
         
@@ -33,7 +35,6 @@ def main(targets):
             clean_data.clean_vcf(**data_config)
 
         if 'analysis' in targets:
-            os.system("mkdir data/out")
 
             analysis.compute_eqtls(**data_config)
             
@@ -43,7 +44,8 @@ def main(targets):
 
 
         if 'test' in targets:
-            os.system("mkdir test/out")
+            if not os.path.exists(os.getcwd() + '/test/out')                
+                os.system("mkdir test/out")
 
             clean_data.clean_vcf(**{**data_config, 'vcf_path':'test/testdata/test_genotypes.vcf', 'vcf_out_prefix':'test'})
 

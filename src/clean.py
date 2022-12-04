@@ -1,8 +1,13 @@
 import os
 
 def clean():
-    cwd = os.getcwd() + '/'
+
     os.system("rm .png")
-    os.system("rm /data/out/*")
-    os.system("rm /data/temp/*")
-    os.system("rm /test/out/*")
+    if os.path.exists(os.getcwd() + '/data/out'):
+        os.system("rm /data/out/*")
+        
+    if os.path.exists(os.getcwd() + '/data/temp'):
+        os.system("rm /data/temp/*")
+    
+    if os.path.exists(os.getcwd() + '/test/out'):
+        os.system("rm /test/out/*")
