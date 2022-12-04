@@ -49,7 +49,7 @@ def regress(x, snps, total_count, samples):
     return sig_alleles
     
     
-def compute_n_pairs(expressions_ch, vcf_out_path, vcf_out_prefix, expressions_name, populations_name, chromosome, cis_thresh):
+def compute_n_pairs(expressions_ch, vcf_out_path, vcf_out_prefix, cis_thresh):
     cd = os.getcwd()
     
     names = get_vcf_names(cd + '/' + vcf_out_path + vcf_out_prefix + '.vcf')
@@ -79,8 +79,8 @@ def compute_eqtls(vcf_out_path, vcf_out_prefix, expressions_path, populations_pa
     
     pops = pd.read_csv(cwd + '/' + populations_path, sep=' ')
     
-    n_pairs = compute_n_pairs(expressions_ch, vcf_out_path, vcf_out_prefix, expressions_path, populations_path, chromosome, cis_thresh)
-    
+    n_pairs = compute_n_pairs(expressions_ch, vcf_out_path, vcf_out_prefix, cis_thresh)
+
     target_pops = target_populations
     
     samples = pops['sample'][pops['population'].isin(target_pops)]
@@ -89,6 +89,7 @@ def compute_eqtls(vcf_out_path, vcf_out_prefix, expressions_path, populations_pa
     vcf = pd.read_csv(cwd + '/' + vcf_out_path + vcf_out_prefix + '.vcf', chunksize=50_000, comment='#',low_memory=False, delim_whitespace=True, header=None, names=names)
 
     significants = pd.DataFrame(columns=['gene', 'snp', 'pos', 'slope', 'SE', 'pvalue'])
+    
 
     for i, chunk in enumerate(vcf):
 
