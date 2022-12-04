@@ -47,7 +47,7 @@ def main(targets):
 
             clean_data.clean_vcf(**{**data_config, 'vcf_path':'test/testdata/test_genotypes.vcf', 'vcf_out_prefix':'test'})
 
-            analysis.compute_eqtls(**{**data_config, 'vcf_path':'test/testdata/test_genotypes.vcf', 'expressions_path':'test/testdata/test_expressions.txt', 'vcf_out_prefix':'test', 'outfile': 'test/out/test.csv'})
+            analysis.compute_eqtls(**{**data_config, 'vcf_path':'test/testdata/test_genotypes.vcf', 'expressions_path':'test/testdata/test_expressions.txt','populations_path': 'test/testdata/test_populations.txt', 'vcf_out_prefix':'test', 'outfile': 'test/out/test.csv'})
 
 if __name__ == '__main__':
     
