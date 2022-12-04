@@ -13,6 +13,7 @@ warnings.filterwarnings('ignore')
 
 import src.clean_data as clean_data
 import src.analysis as analysis
+import src.clean as clean
 
 
 
@@ -33,6 +34,10 @@ def main(targets):
         if 'analysis' in targets:
 
             analysis.compute_eqtls(**data_config)
+            
+        if 'clean' in targets:
+            
+            clean.clean()
 
 
         if 'test' in targets:
