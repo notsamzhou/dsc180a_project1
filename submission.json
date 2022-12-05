@@ -1,4 +1,4 @@
 {
     "dockerhub-id": "notsamzhou/dsc180_project1:latest",
-    "build-script": "python3 run.py test"
+    "build-script": "python3 run.py"
 }
