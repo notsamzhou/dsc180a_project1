@@ -14,4 +14,4 @@ The vcfs used in the analysis can be downloaded from [here](http://ftp.1000genom
 
 The gene expression data can downloaded from https://zenodo.org/record/6998955 (The file beginning with GD462). This file should be placed in /data/raw
 
-The population data can be downloaded from http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20110521/phase1_integrated_calls.20101123.ALL.panel
+The population data can be downloaded from [here](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20110521/ALL.chr22.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz.tbi) and should be placed in /data/raw
