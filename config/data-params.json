@@ -1,7 +1,7 @@
 {
   "vcf_path": "data/raw/vcfs/ALL.chr22.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz",
   "expressions_path": "data/raw/GD462.GeneQuantRPKM.50FN.samplename.resk10.txt.gz",
-  "populations_path": "data/raw/ALL_1000G_phase1integrated_v3.sample",
+  "populations_path": "data/raw/phase1_integrated_calls.20101123.ALL.panel",
   "vcf_out_path": "data/temp/",
   "vcf_out_prefix": "chr22",
   "chromosome": "22",

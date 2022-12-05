@@ -77,7 +77,7 @@ def compute_eqtls(vcf_out_path, vcf_out_prefix, expressions_path, populations_pa
     
     expressions_ch = expressions[expressions['Chr'].astype(str) == chromosome]
     
-    pops = pd.read_csv(cwd + '/' + populations_path, sep=' ')
+    pops = pd.read_csv(cwd + '/' + populations_path, sep='\t', usecols=[0, 1, 2], header=None, names=['sample', 'population', 'group'])
     
     n_pairs = compute_n_pairs(expressions_ch, vcf_out_path, vcf_out_prefix, cis_thresh)
 
