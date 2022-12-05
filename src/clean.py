@@ -6,15 +6,12 @@ def clean():
         os.system("rm .png")
                       
     if os.path.exists(os.getcwd() + '/data/out'):
-        if os.listdir(os.getcwd() + '/data/out'):
-            os.system("rm data/out/*")
+        os.system("rm -r data/out")
         
     if os.path.exists(os.getcwd() + '/data/temp'):
-        if os.listdir(os.getcwd() + '/data/temp'):
-            os.system("rm data/temp/*")
+        os.system("rm -r data/temp")
     
     if os.path.exists(os.getcwd() + '/test/out'):
-        if os.listdir(os.getcwd() + '/test/out'):
-            os.system("rm test/out/*")
+        os.system("rm -r test/out")
 
             
